@@ -10,16 +10,7 @@ const Menu = () => {
                 <title>Fork Fable | Our Menu</title>
             </Helmet>
             <Cover bgimg={menubg} title={"Our Menu"} subTitle={"Would you Like to Try Dish"} />
-            <PopularMenu></PopularMenu>
 
-            <Cover bgimg={menubg} title={"Our Menu"} subTitle={"Would you Like to Try Dish"} />
-            <PopularMenu></PopularMenu>
-
-            <Cover bgimg={menubg} title={"Our Menu"} subTitle={"Would you Like to Try Dish"} />
-            <PopularMenu></PopularMenu>
-
-            <Cover bgimg={menubg} title={"Our Menu"} subTitle={"Would you Like to Try Dish"} />
-            <PopularMenu></PopularMenu>
         </div>
     );
 };
