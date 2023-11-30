@@ -6,8 +6,11 @@
 
 ## On FrontEnd:
 
-- React for for fontend and state management
-- SwiperJs for Review Section and some swiper features
+- React for for fontend and state management.
+- SwiperJs for Review Section and some swiper features.
+- Responsive Carousel package for creating Homepage Carousel.
+- React router dom for Routing.
+- Reacting Rating for shwoing the Ratings.
 - 
 
 
