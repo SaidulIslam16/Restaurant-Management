@@ -38,19 +38,19 @@ const Menu = () => {
 
             {/* Desserts Section */}
 
-            <MenuCategory items={dessert} title={"Desserts"} subTitle={"Chose your Dessert from here"} coverImg={dessertBg} />
+            <MenuCategory items={dessert} title={"desserts"} subTitle={"Chose your Dessert from here"} coverImg={dessertBg} />
 
             {/* Pizza Section */}
 
-            <MenuCategory items={pizza} title={"Pizza"} subTitle={"Chose your Dessert from here"} coverImg={pizzaBg} />
+            <MenuCategory items={pizza} title={"pizza"} subTitle={"Chose your Dessert from here"} coverImg={pizzaBg} />
 
             {/* Salad Section */}
 
-            <MenuCategory items={salad} title={"Salad"} subTitle={"Chose your Dessert from here"} coverImg={saladBg} />
+            <MenuCategory items={salad} title={"salad"} subTitle={"Chose your Dessert from here"} coverImg={saladBg} />
 
             {/* Soup Section */}
 
-            <MenuCategory items={soup} title={"Soup"} subTitle={"Chose your Dessert from here"} coverImg={soupBg} />
+            <MenuCategory items={soup} title={"soup"} subTitle={"Chose your Dessert from here"} coverImg={soupBg} />
 
         </div>
     );
