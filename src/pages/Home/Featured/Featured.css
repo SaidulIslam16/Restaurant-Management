@@ -1,3 +1,4 @@
 .feature {
-    background-image: url('../../../assets/home/featured.jpg');
+    background-image: url('../../../assets/home/featured_bg.png');
+    background-repeat: no-repeat;
 }
