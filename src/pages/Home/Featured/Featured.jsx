@@ -1,9 +1,10 @@
 import SectionTitle from "../../../components/SectionTitle";
 import featuredImg from '../../../assets/home/featured.jpg'
+import './Featured.css'
 
 const Featured = () => {
     return (
-        <section>
+        <section className="feature px-20 py-12 text-white my-10">
             <SectionTitle
                 subHeading={"Check it Out"}
                 heading={"From Our Menu"}
