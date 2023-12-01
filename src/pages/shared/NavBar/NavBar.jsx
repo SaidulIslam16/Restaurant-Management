@@ -1,7 +1,26 @@
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/ForkFableLogo.png'
+import { useContext } from 'react';
+import { AuthContext } from '../../../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 const NavBar = () => {
+
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut()
+      .thne(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Logout Successful",
+          showConfirmButton: false,
+          timer: 1500
+        });
+      })
+      .catch(e => console.error(e))
+  }
 
   const navOptoins = <>
     <li><Link to='/'>Home</Link></li>
@@ -29,12 +48,34 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to='/signup'>
-            <button className="btn me-5">Signup</button>
-          </Link>
-          <Link to='/login'>
-            <button className="btn">Login</button>
-          </Link>
+          {
+            user ?
+              <div className="dropdown dropdown-end">
+                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                  </div>
+                </div>
+                <ul className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                  <li>
+                    <a className="justify-between">
+                      Profile
+                      <span className="badge">New</span>
+                    </a>
+                  </li>
+                  <li><button onClick={handleLogout}>Logout</button></li>
+                </ul>
+              </div>
+              :
+              <>
+                <Link to='/signup'>
+                  <button className="btn me-5">Signup</button>
+                </Link>
+                <Link to='/login'>
+                  <button className="btn">Login</button>
+                </Link>
+              </>
+          }
         </div>
       </div>
     </div>
