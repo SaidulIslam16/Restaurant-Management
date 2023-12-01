@@ -1,22 +1,33 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors }, } = useForm();
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const onSubmit = (data) => {
         const email = data.email;
         const password = data.password;
         const name = data.name;
+        const photoURL = data.photourl;
 
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+
+                updateUserProfile(name, photoURL)
+                    .then(() => {
+                        console.log('user profile info updated')
+                    })
+                    .catch(e => {
+                        console.error(e)
+                    })
+                navigate('/')
             })
             .catch(e => {
                 console.error(e)
@@ -41,6 +52,12 @@ const SignUp = () => {
                                     <span className="label-text">Name</span>
                                 </label>
                                 <input type="text" placeholder="name" {...register("name")} name="name" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">PhotoURL</span>
+                                </label>
+                                <input type="text" placeholder="photourl" {...register("photourl")} name="photourl" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
