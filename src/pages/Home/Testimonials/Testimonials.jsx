@@ -19,7 +19,7 @@ const Testimonials = () => {
             .then(data => useReviews(data))
     }, [])
 
-    console.log(reviews);
+    // console.log(reviews);
 
     return (
         <section className="mb-10">

@@ -1,13 +1,24 @@
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Login = () => {
+
+    const { loginUser } = useContext(AuthContext);
 
     const handleLogin = e => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-
         console.log(email, password);
+
+        loginUser(email, password)
+            .then(restul => {
+                const user = restul.user;
+                console.log(user);
+            })
+            .catch(e => { })
     }
 
     return (
@@ -38,6 +49,9 @@ const Login = () => {
                             <input type="submit" className="btn btn-primary" value="Login" />
                         </div>
                     </form>
+                    <div className="text-center pb-6">
+                        <p>New Here? <span className="font-bold text-orange-500"><Link to='/signup'>Create an Account</Link></span></p>
+                    </div>
                 </div>
             </div>
         </div>
