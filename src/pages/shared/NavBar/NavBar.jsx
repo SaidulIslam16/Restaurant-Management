@@ -3,11 +3,13 @@ import logo from '../../../assets/ForkFableLogo.png'
 import { useContext } from 'react';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { FaCartArrowDown } from "react-icons/fa6";
+import useCart from '../../../hooks/useCart';
 
 
 const NavBar = () => {
 
   const { user, logOut } = useContext(AuthContext);
+  const [cart] = useCart();
 
   const handleLogout = () => {
     logOut()
@@ -25,7 +27,7 @@ const NavBar = () => {
       <Link>
         <button className="btn btn-xs">
           <FaCartArrowDown></FaCartArrowDown>
-          <div className="badge badge-secondary">+1</div>
+          <div className="badge badge-secondary">+{cart?.length || 0}</div>
         </button>
       </Link>
     </li>
