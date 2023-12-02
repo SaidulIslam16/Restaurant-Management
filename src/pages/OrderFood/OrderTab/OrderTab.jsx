@@ -4,7 +4,7 @@ const OrderTab = ({ items }) => {
     return (
         <div className="md:grid grid-cols-3 gap-10">
             {
-                items?.map(items => <FoodCart key={items._id} items={items}></FoodCart>)
+                items?.map(item => <FoodCart key={item._id} item={item}></FoodCart>)
             }
         </div>
     );
